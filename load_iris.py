@@ -19,8 +19,8 @@ def main():
     iris = datasets.load_iris(as_frame=True)
 
     # Write to disk
-    output_path = Path(args.output_dir) / f'{args.name}.csv'
-    iris.data.to_csv(output_path, index=False)
+    iris.data.to_csv(Path(args.output_dir) / f'{args.name}.features.csv', index_label='id')
+    iris.target.to_csv(Path(args.output_dir) / f'{args.name}.labels.csv', index_label='id')
 
 
 if __name__ == "__main__":
